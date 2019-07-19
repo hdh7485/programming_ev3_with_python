@@ -4,15 +4,13 @@ from pybricks import ev3brick as brick
 from pybricks.ev3devices import Motor
 from pybricks.parameters import Port
 
-# Play a sound.
-brick.sound.beep()
+left_motor = Motor(Port.B)
 
-# Initialize a motor at port B.
-test_motor = Motor(Port.B)
+left_motor.run_angle(360, 360, Stop.BRAKE, True)
+wait(1000)
 
-# Run the motor up to 500 degrees per second. To a target angle of 90 degrees.
-test_motor.run_target(500, 90)
+left_motor.run_angle(180, 180, Stop.BRAKE, True)
+wait(1000)
 
-# Play another beep sound.
-# This time with a higher pitch (1000 Hz) and longer duration (500 ms).
-brick.sound.beep(1000, 500)
+left_motor.run_target(360, 0, Stop.BRAKE, True)
+wait(1000)
